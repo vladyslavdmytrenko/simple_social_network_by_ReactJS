@@ -1,0 +1,19 @@
+.nav{
+    grid-area: n;
+    background-color: #2C3748;
+}
+
+.nav a{
+    display: block;
+    padding: 10px;
+    color: #818EA3;;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: #242D3B;
+}
+.nav a.activeLink{
+    padding-left: 10px;
+    color: cornsilk;
+}

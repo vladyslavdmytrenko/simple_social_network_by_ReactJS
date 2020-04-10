@@ -1,0 +1,15 @@
+.post {
+    grid-area: c;
+    background-color: #242D3B;
+    padding: 10px;
+    margin: 10px;
+}
+.post p {
+    padding-left: 60px;
+}
+.post img {
+    float: left;
+    width: 50px;
+    border-radius: 50%;
+    padding-right: 10px;
+}
