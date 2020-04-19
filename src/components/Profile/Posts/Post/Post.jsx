@@ -5,9 +5,9 @@ const Post = (props) => {
     return (
         <div className={c.post}>
             <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRovSSDmSPldW50frhQXofGaJOWTN9nWwrDdhrn77Bl0gt75nyv&usqp=CAU"
+                src={props.img}
                 alt=""/>
-            <h3>Name</h3>
+            <h3>{props.name}</h3>
             <p>{props.message}</p>
             <div>
                 <span>Like: {props.likes}</span>

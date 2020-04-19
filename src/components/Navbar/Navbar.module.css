@@ -1,6 +1,10 @@
+.container {
+     display: flex;
+     background-color: #2C3748;
+     flex-direction: column;
+ }
 .nav{
     grid-area: n;
-    background-color: #2C3748;
 }
 
 .nav a{
@@ -16,4 +20,12 @@
 .nav a.activeLink{
     padding-left: 10px;
     color: cornsilk;
+}
+.containerFriends h3{
+    padding-left: 10px;
+}
+.friends{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }

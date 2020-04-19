@@ -1,0 +1,13 @@
+.link {
+    color: #818EA3;
+    text-decoration: none;
+    padding: 10px;
+}
+.link:hover{
+    color: #414D62;
+}
+.link img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

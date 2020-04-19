@@ -1,13 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import state from './redux/state';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <BrowserRouter>
+        <App
+            dataProfile={state.dataProfile}
+            dataFriends={state.friends}
+            dataDialogs={state.dataDialogs}
+            dataMessages={state.dataMessages}
+        />
+    </BrowserRouter>
+  </React.StrictMode>
+,
   document.getElementById('root')
 );
 

@@ -1,0 +1,13 @@
+.dialoItem{
+    padding: 5px;
+    display: flex;
+}
+.dialogItemImg {
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 50%;
+}
+a.activeLink {
+    /*color: #2C3748;*/
+    /*background-color: #818EA3;*/
+}

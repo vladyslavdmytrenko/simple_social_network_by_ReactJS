@@ -3,13 +3,16 @@ import AddPost from './AddPost/AddPost';
 import Post from './Post/Post';
 import c from './Posts.module.css';
 
-const Posts = () => {
+const Posts = (props) => {
+    const AllPosts = props.dataProfile.map( el => <Post
+        name={el.name}
+        img={el.img}
+        message={el.message}
+        likes={el.likes}/>);
     return (
         <div className={c.posts}>
             <AddPost />
-            <Post message='Hi, how are you' likes='3'/>
-            <Post message='Fine' likes='2'/>
-            <Post message='hello' likes='5'/>
+            {AllPosts}
         </div>
     );
 };

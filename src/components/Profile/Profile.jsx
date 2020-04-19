@@ -2,11 +2,10 @@ import React from 'react';
 import Posts from './Posts/Posts';
 import c from './Profile.module.css';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={c.content}>
-            <img src="" alt=""/>
-            <Posts />
+            <Posts dataProfile={props.dataProfile} />
         </div>
     );
 };

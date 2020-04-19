@@ -1,0 +1,26 @@
+.dialogs {
+    display: flex;
+    min-width: 100%;
+}
+.dialogsItems{
+    /*width: 100%;*/
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #414D62;
+}
+.dialogsItems a{
+    padding: 10px 10px 10px 20px;
+    color: #818EA3;
+    text-decoration: none;
+}
+
+.dialogsItems a:hover{
+    color: cornsilk;
+}
+.messages{
+    /*width: 100%;*/
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+}

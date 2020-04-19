@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -9,20 +9,20 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Setting from "./components/Setting/Setting";
 import News from "./components/News/News";
 
-const App = () => {
+
+
+const App = (props) => {
     return (
-        <BrowserRouter>
-            <div className='app-wrapper'>
-                <Header/>
-                <Navbar/>
-                <div className='app-wrapper-content'>
-                    <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/dialogs'} component={Dialogs}/>
-                    <Route path={'/news'} component={News}/>
-                    <Route path={'/setting'} component={Setting}/>
-                </div>
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar dataFriends={props.dataFriends}/>
+            <div className='app-wrapper-content'>
+                <Route path={'/profile'} render={() => <Profile dataProfile={props.dataProfile}/>}/>
+                <Route path={'/dialogs'} render={() => <Dialogs dataDialogs={props.dataDialogs} dataMessages={props.dataMessages}/>}/>
+                <Route path={'/news'} render={() => <News />}/>
+                <Route path={'/setting'} render={() => <Setting />}/>
             </div>
-        </BrowserRouter>
+        </div>
     )
 };
 

@@ -5,6 +5,7 @@ body {
 .app-wrapper {
   margin: auto;
   width: 1200px;
+  min-height: 100vh;
   display: grid;
   grid-template-areas:
           'h h'
@@ -16,4 +17,5 @@ body {
 .app-wrapper-content{
   grid-area: c;
   background-color: #2C3748;
+  display: flex;
 }
