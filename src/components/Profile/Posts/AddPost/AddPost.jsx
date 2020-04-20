@@ -2,11 +2,15 @@ import React from 'react';
 import c from './AddPost.module.css';
 
 const AddPost = (props) => {
+    const add = () =>{
+        alert(ref.current.value)
+    };
+    const ref = React.createRef();
+
     return (
         <div className={c.add_post}>
-            <label>text</label>
-            <input type="text" />
-            <button>Add</button>
+            <textarea ref={ref}/>
+            <button onClick={add}>Add</button>
         </div>
     );
 };
