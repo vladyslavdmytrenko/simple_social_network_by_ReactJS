@@ -9,16 +9,27 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import Setting from "./components/Setting/Setting";
 import News from "./components/News/News";
 
-
-
 const App = (props) => {
     return (
         <div className='app-wrapper'>
             <Header/>
             <Navbar dataFriends={props.dataFriends}/>
             <div className='app-wrapper-content'>
-                <Route path={'/profile'} render={() => <Profile dataProfile={props.dataProfile}/>}/>
-                <Route path={'/dialogs'} render={() => <Dialogs dataDialogs={props.dataDialogs} dataMessages={props.dataMessages}/>}/>
+                <Route path={'/profile'} render={() =>
+                    (<Profile
+                        updateNewPostData={props.updateNewPostData}
+                        addPost={props.addPost}
+                        dataProfile={props.dataProfile}
+                    />)
+                }/>
+                <Route path={'/dialogs'} render={() =>
+                    (<Dialogs
+                        updateNewMessageData={props.updateNewMessageData}
+                        addMessage={props.addMessage}
+                        dataDialogs={props.dataDialogs}
+                        dataMessages={props.dataMessages}
+                    />)}
+                />
                 <Route path={'/news'} render={() => <News />}/>
                 <Route path={'/setting'} render={() => <Setting />}/>
             </div>

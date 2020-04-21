@@ -1,11 +1,17 @@
 import React from 'react';
 
-const AddMessage = () => {
+const AddMessage = (props) => {
     const ref = React.createRef();
-    const add = () => {alert(ref.current.value)};
+    const add = () => {props.addMessage()};
+    const onChangeData = () => {props.updateNewMessageData(ref.current.value)};
+
     return (
         <div>
-            <textarea ref={ref}></textarea>
+            <textarea
+                onChange={onChangeData}
+                value={props.textNewMessageData}
+                ref={ref}
+            />
             <button onClick={add}>Send</button>
         </div>
     )

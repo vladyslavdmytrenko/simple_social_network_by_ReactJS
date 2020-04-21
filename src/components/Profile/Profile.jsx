@@ -5,7 +5,11 @@ import c from './Profile.module.css';
 const Profile = (props) => {
     return (
         <div className={c.content}>
-            <Posts dataProfile={props.dataProfile} />
+            <Posts
+                addPost={props.addPost}
+                updateNewPostData={props.updateNewPostData}
+                dataProfile={props.dataProfile}
+            />
         </div>
     );
 };

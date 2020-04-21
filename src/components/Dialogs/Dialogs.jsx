@@ -7,7 +7,7 @@ import AddMessage from './addMessage/AddMessage';
 const Dialogs = (props) => {
 
     let dialog = props.dataDialogs.map(d =>  <DialogItem name={d.name} id={d.id} img={d.img}/>);
-    let messages = props.dataMessages.map(m =>  <Messages interlocutor={m.interlocutor} message={m.massage} />);
+    let messages = props.dataMessages.dataMessagesItems.map(m =>  <Messages interlocutor={m.interlocutor} message={m.massage} />);
 
     return (
         <div className={c.dialogs}>
@@ -16,7 +16,11 @@ const Dialogs = (props) => {
             </div>
             <div className={c.messages}>
                 { messages }
-                <AddMessage />
+                <AddMessage
+                    addMessage={props.addMessage}
+                    updateNewMessageData={props.updateNewMessageData}
+                    textNewMessageData={props.dataMessages.textNewMessageData}
+                />
             </div>
         </div>
     );

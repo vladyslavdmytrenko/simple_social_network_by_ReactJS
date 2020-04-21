@@ -4,14 +4,19 @@ import Post from './Post/Post';
 import c from './Posts.module.css';
 
 const Posts = (props) => {
-    const AllPosts = props.dataProfile.map( el => <Post
+    const AllPosts = props.dataProfile.dataProfileItems.map( el => <Post
         name={el.name}
         img={el.img}
         message={el.message}
         likes={el.likes}/>);
+
     return (
         <div className={c.posts}>
-            <AddPost />
+            <AddPost
+                addPost={props.addPost}
+                updateNewPostData={props.updateNewPostData}
+                textNewPostData={props.dataProfile.textNewPostData}
+            />
             {AllPosts}
         </div>
     );
