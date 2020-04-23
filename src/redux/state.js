@@ -1,3 +1,23 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_DATA = "UPDATE-NEW-POST-DATA";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_DATA = "UPDATE-NEW-MESSAGE-DATA";
+
+export const addPost = () => ({
+    type: 'ADD-POST',
+});
+export const updateNewPostData = (newText) => ({
+    type: 'UPDATE-NEW-POST-DATA',
+    newText: newText,
+});
+export const addMessage = () => ({
+    type: 'ADD-MESSAGE',
+});
+export const updateNewMessageData = (newText) => ({
+    type: 'UPDATE-NEW-MESSAGE-DATA',
+    newText: newText,
+});
+
 const store = {
     _state: {
         friends: [
@@ -83,29 +103,45 @@ const store = {
     getState() {
       return this._state;
     },
-    rerender(state) {
+    _rerender(state) {
         console.log(state);
     },
     addPost() {
-        this._state.dataProfile.dataProfileItems.push({name:'Name 1', likes: 3, message:this._state.dataProfile.textNewPostData, id:1, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRovSSDmSPldW50frhQXofGaJOWTN9nWwrDdhrn77Bl0gt75nyv&usqp=CAU'});
+        this._state.dataProfile.dataProfileItems.push({
+            name:'Name 1', likes: 3,
+            message:this._state.dataProfile.textNewPostData,
+            id:1, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRovSSDmSPldW50frhQXofGaJOWTN9nWwrDdhrn77Bl0gt75nyv&usqp=CAU'
+        });
         this._state.dataProfile.textNewPostData = '';
-        this.rerender(this._state);
+        this._rerender(this._state);
     },
     updateNewPostData(newText) {
         this._state.dataProfile.textNewPostData = newText;
-        this.rerender(this._state);
+        this._rerender(this._state);
     },
     addMessage() {
         this._state.dataMessages.dataMessagesItems.push({massage:this._state.dataMessages.textNewMessageData, id:1, interlocutor: false});
         this._state.dataMessages.textNewMessageData = '';
-        this.rerender(this._state);
+        this._rerender(this._state);
     },
     updateNewMessageData(newText) {
         this._state.dataMessages.textNewMessageData = newText;
-        this.rerender(this._state);
+        this._rerender(this._state);
     },
     subscribe(observer) {
-        this.rerender = observer;
+        this._rerender = observer;
+    },
+    dispatch(action) {
+        if  (ADD_POST === action.type) {
+            this.addPost();
+        }else if (UPDATE_NEW_POST_DATA === action.type){
+            this.updateNewPostData(action.newText);
+        }else if (ADD_MESSAGE === action.type) {
+            this.addMessage();
+        }else if (UPDATE_NEW_MESSAGE_DATA === action.type) {
+            this.updateNewMessageData(action.newText);
+        }
     }
 };
+
 export default store

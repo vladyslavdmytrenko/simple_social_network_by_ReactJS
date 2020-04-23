@@ -13,8 +13,9 @@ const Posts = (props) => {
     return (
         <div className={c.posts}>
             <AddPost
-                addPost={props.addPost}
-                updateNewPostData={props.updateNewPostData}
+                dispatch={props.dispatch}
+                // addPost={props.addPost}
+                // updateNewPostData={props.updateNewPostData}
                 textNewPostData={props.dataProfile.textNewPostData}
             />
             {AllPosts}

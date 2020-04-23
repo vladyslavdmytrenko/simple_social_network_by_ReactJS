@@ -9,10 +9,11 @@ export let rerender = (props)=> {
         <React.StrictMode>
             <BrowserRouter>
                 <App
-                    addPost={store.addPost.bind(store)}
-                    updateNewPostData={store.updateNewPostData.bind(store)}
-                    addMessage={store.addMessage.bind(store)}
-                    updateNewMessageData={store.updateNewMessageData.bind(store)}
+                    dispatch={store.dispatch.bind(store)}
+                    // addPost={store.addPost.bind(store)}
+                    // updateNewPostData={store.updateNewPostData.bind(store)}
+                    //addMessage={store.addMessage.bind(store)}
+                    //updateNewMessageData={store.updateNewMessageData.bind(store)}
 
                     dataProfile={props.dataProfile}
                     dataFriends={props.friends}
