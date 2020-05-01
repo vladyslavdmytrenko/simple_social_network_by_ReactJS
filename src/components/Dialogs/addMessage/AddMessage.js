@@ -1,14 +1,14 @@
 import React from 'react';
-import {addMessage, updateNewMessageData} from "../../../redux/state";
+import {addMessageActionCreator, updateNewMessageDataActionCreator} from "../../../redux/dialogs-reducer";
 
 const AddMessage = (props) => {
     const ref = React.createRef();
     const add = () => {
-        let action = addMessage();
+        let action = addMessageActionCreator();
         props.dispatch(action);
     };
     const onChangeData = () => {
-        let action = updateNewMessageData(ref.current.value);
+        let action = updateNewMessageDataActionCreator(ref.current.value);
         props.dispatch(action);
     };
 

@@ -2,23 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
-import store from './redux/state';
+import store from './redux/redux-store';
+import './index.css';
 
 export let rerender = (props)=> {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
                 <App
+                    store={store}
                     dispatch={store.dispatch.bind(store)}
-                    // addPost={store.addPost.bind(store)}
-                    // updateNewPostData={store.updateNewPostData.bind(store)}
-                    //addMessage={store.addMessage.bind(store)}
-                    //updateNewMessageData={store.updateNewMessageData.bind(store)}
-
                     dataProfile={props.dataProfile}
                     dataFriends={props.friends}
                     dataDialogs={props.dataDialogs}
-                    dataMessages={props.dataMessages}
                 />
             </BrowserRouter>
         </React.StrictMode>
@@ -28,4 +24,7 @@ export let rerender = (props)=> {
 
 rerender(store.getState());
 
-store.subscribe(rerender);
+store.subscribe(() => {
+    let state = store.getState();
+    rerender(state)
+});

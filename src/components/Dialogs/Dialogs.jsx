@@ -5,22 +5,19 @@ import Messages from './Messages/Messages';
 import AddMessage from './addMessage/AddMessage';
 
 const Dialogs = (props) => {
-
-    let dialog = props.dataDialogs.map(d =>  <DialogItem name={d.name} id={d.id} img={d.img}/>);
-    let messages = props.dataMessages.dataMessagesItems.map(m =>  <Messages interlocutor={m.interlocutor} message={m.massage} />);
+    let dialogs = props.dialogs.map(d =>  <DialogItem name={d.name} id={d.id} img={d.img}/>);
+    let messages = props.messages.map(m =>  <Messages interlocutor={m.interlocutor} message={m.massage} />);
 
     return (
         <div className={c.dialogs}>
             <div className={c.dialogsItems}>
-                { dialog }
+                { dialogs }
             </div>
             <div className={c.messages}>
                 { messages }
                 <AddMessage
                     dispatch={props.dispatch}
-                    //addMessage={props.addMessage}
-                    //updateNewMessageData={props.updateNewMessageData}
-                    textNewMessageData={props.dataMessages.textNewMessageData}
+                    textNewMessageData={props.textNewMessageData}
                 />
             </div>
         </div>

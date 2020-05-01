@@ -1,15 +1,15 @@
 import React from 'react';
 import c from './AddPost.module.css';
-import {addPost, updateNewPostData} from "../../../../redux/state";
+import {addPostActionCreator, updateNewPostDataActionCreator} from "../../../../redux/profile-reducer";
 
 const AddPost = (props) => {
     const ref = React.createRef();
     const add = () =>{
-        const newPost = addPost();
+        const newPost = addPostActionCreator();
         props.dispatch(newPost)
     };
     const onPostChange = () => {
-        const newText = updateNewPostData(ref.current.value);
+        const newText = updateNewPostDataActionCreator(ref.current.value);
         props.dispatch(newText)
     };
 

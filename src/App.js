@@ -4,30 +4,19 @@ import './App.css';
 
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
-import Dialogs from "./components/Dialogs/Dialogs";
 import Setting from "./components/Setting/Setting";
 import News from "./components/News/News";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = (props) => {
     return (
         <div className='app-wrapper'>
             <Header/>
-            <Navbar dataFriends={props.dataFriends}/>
+            <Navbar dataFriends={props.dataFriends}/>s
             <div className='app-wrapper-content'>
-                <Route path={'/profile'} render={() =>
-                    (<Profile
-                        dispatch={props.dispatch}
-                        dataProfile={props.dataProfile}
-                    />)
-                }/>
-                <Route path={'/dialogs'} render={() =>
-                    (<Dialogs
-                        dispatch={props.dispatch}
-                        dataDialogs={props.dataDialogs}
-                        dataMessages={props.dataMessages}
-                    />)}
-                />
+                <Route path={'/profile'} render={() =><ProfileContainer store={props.store}/>}/>
+                <Route path={'/dialogs'} render={() => <DialogsContainer store={props.store}/>}/>
                 <Route path={'/news'} render={() => <News />}/>
                 <Route path={'/setting'} render={() => <Setting />}/>
             </div>
